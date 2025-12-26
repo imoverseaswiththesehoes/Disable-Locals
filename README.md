@@ -1,22 +1,36 @@
-# Disable-Locals
+## Disable-Locals
 
-A simple resource to remove all ped and vehicles.
+A lightweight FiveM thread that blocks all AI peds and vehicles from spawning.
 
-This resource disables all locals by setting ped and vehicle budgets to zero.
+This resource disables population spawning for the default routing bucket (`0`), preventing any ambient AI peds or vehicles from appearing in the server. The behavior is applied automatically when the resource starts and does not require any configuration just a simple drag and drop file.
 
-Installation
-Download the code from this repository.
+### How It Works
 
-Extract the contents of this repo into your server /resources/nolocals. If the /nolocals folder does not exists, then create it.
+* Runs a thread when the resource starts
+* Disables population spawning for routing bucket `0`
+* Prevents all AI peds and vehicles from spawning
 
-You can also create the folder inside /resources/[local]/nolocals
+### Installation
 
-nolocals is the name of the resource in this case, but you can rename it to something like populationoff or fivem-nolocals. It's your choice. Make sure the name of the folder matches the name you'll set in the server.cfg
+1. Download or clone this repository
+2. Place the folder into your server’s `resources` directory
 
-Add the resource name in the server.cfg:
+   * Example: `/resources/disable-locals`
+3. (Optional) Rename the folder to something like `populationoff` or `disableai`
+4. Add the resource to your `server.cfg`:
 
-ensure nolocals
+```
+ensure disable-locals
+```
 
-Start your server. You can write stop nolocals in your server console to enable locals again.
+5. Start your server
 
-License: MIT
+### Notes
+
+* Affects **AI population only**
+* Players are not affected
+* Stopping the resource will allow AI to spawn again
+
+### License
+
+MIT
